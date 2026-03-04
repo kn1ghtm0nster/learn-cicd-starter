@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestGetAPIKeySuccess(t *testing.T){
+func TestGetAPIKeySuccess(t *testing.T) {
 	header := http.Header{}
 	header.Set("Authorization", "ApiKey super-secret-key")
 
@@ -19,7 +19,7 @@ func TestGetAPIKeySuccess(t *testing.T){
 	}
 }
 
-func TestGetAPIKeyNoHeader(t *testing.T){
+func TestGetAPIKeyNoHeader(t *testing.T) {
 	headers := http.Header{}
 
 	_, err := GetAPIKey(headers)
