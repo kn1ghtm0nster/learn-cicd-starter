@@ -33,7 +33,7 @@ func TestGetAPIKeyInvalidHeader(t *testing.T) {
 	headers.Set("Authorization", "InvalidHeaderValue")
 
 	result, err := GetAPIKey(headers)
-	if err != nil {
+	if err == nil {
 		t.Fatalf("expected error, got nil")
 	}
 
