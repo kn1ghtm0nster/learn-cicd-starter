@@ -29,5 +29,8 @@ jobs:
       - name: Setup GC Cloud SDK
         uses: "google-github-actions/setup-gcloud@v3"
 
-      - name: Deploy to Cloud Run
+      - name: Build and Push Docker Image
         run: gcloud builds submit --tag us-central1-docker.pkg.dev/concise-cinema-489823-v6/notely-ar-repo/notely:latest .
+
+      - name: Deploy to Cloud Run
+        run: gcloud run deploy notely --image us-central1-docker.pkg.dev/concise-cinema-489823-v6/notely-ar-repo/notely:latest --region us-central1 --allow-unauthenticated --project concise-cinema-489823-v6 --max-instances=4
